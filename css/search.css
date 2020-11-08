@@ -1,0 +1,252 @@
+.margin1{
+  margin-left: 30px;
+  color: white;
+}
+.margin2{
+  color: white;
+}
+li:hover{
+  color: #cac037;
+  background-color: #1d1d1d;
+  border-radius: 10px;
+}
+body{
+  background-image: url("/images/body_bg.gif");
+}
+.textColor{
+  color: #D9C237;
+  font-family: "Times New Roman", Times, serif;
+}
+.textColor1{
+  color: #D9C237;
+  font-family: "Times New Roman", Times, serif;
+  text-transform: uppercase;
+  font-size: 17px;
+}
+p {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+}
+@media only screen and (max-width: 600px){
+  .margin2{
+    margin-left: 30px;
+
+  }
+  .btn{
+    display: none;
+  }
+}
+@media only screen and (max-width: 780px){
+  #show4{
+    display: none;
+  }
+}
+@media only screen and (max-width: 1000px){
+  #show5{
+    display: none;;
+  }
+}
+@media only screen and (max-width: 400px){
+  #show3{
+    display: none;
+  }
+}
+@media only screen and (max-width: 280px){
+  #show2{
+    display: none;
+  }
+}
+.carousel-control-prev,.carousel-control-next{
+  width: 4%;
+}
+.right-box{
+  height: 700px;
+}
+.container{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.right-box-hear{
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+}
+.right-box-content{
+  border-radius: 10px;
+  background-color: rgb(21,21,21);
+  height: 600px;
+  width: 100%;
+}
+.right-box-content-m{
+  padding: 5px;
+}
+.right-box-list-content{
+  position: relative;
+  overflow: scroll;
+  width: auto;
+  height: 590px;
+}
+.center{
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+.right-box-list{
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.right-box-img{
+  margin: 10px;
+  height: 100px;
+  width: 80px;
+}
+.right-box-item{
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  
+
+}
+.right-box-list-item:hover {
+text-transform: none;
+color: #cac037;
+}
+
+.rate-vote{
+  background: url("/images/56721467_344957316143224_680765377411547136_n.png") no-repeat;
+  height: 20px;
+  width: 90px;
+  display: block;
+}
+.rate-vote-10{
+  background-position: -4px -564px;
+}
+.rate-vote-9{
+  background-position: -4px -584px;
+}
+.rate-vote-8{
+  background-position: -4px -604px;
+}
+.rate-vote-7{
+  background-position: -4px -624px;
+}
+.rate-vote-6{
+  background-position: -4px -644px;
+}
+.rate-vote-5{
+  background-position: -4px -664px;
+}
+.rate-vote-4{
+  background-position: -4px -684px;
+}
+.rate-vote-3{
+  background-position: -4px -704px;
+}
+.rate-vote-2{
+  background-position: -4px -724px;
+}
+.rate-vote-1{
+  background-position: -4px -744px;
+}
+.rate-vote-0{
+  background-position: -4px -764px;
+}
+
+.dropbtn {
+  background-color: rgb(53,58,63);
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  border: 2px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(40,40,40);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1000;
+  
+}
+.dropdown-left{
+  width: 200px;
+  float: left;
+}
+.dropdown-content1{
+  width: 800px;
+  height: 150px;
+}
+.dropdown-content2{
+  width: 800px;
+  height: 200px;
+}
+.dropdown-content3{
+  width: 600px;
+  height: 100px;
+}
+
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(53,58,63);
+  color: #cac037;
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {
+  background-color: rgb(53,58,63);
+  color: #cac037
+}
+a.non-textdecoration{
+    color: white;
+    text-decoration: none;
+}
+a.namefilm{
+    color: rgb(115,223,251);
+    text-decoration: none;
+}
+.myCard{
+  max-height: 400px;
+  background-color: rgb(27,27,27);
+}
+.card-img{
+  height: 275px;
+}
+.background-search{
+  background-color: rgb(33,33,33);
+  border-radius: 5px;
+}
+.form-control #filter-eptype #filter-language #filter-category{
+  color: gray;
+  margin: 5px 5px 10px 5px;
+  border-radius: 5px;
+  width: 100%;
+  height: 50px;
+  background-color: rgb(51,51,51);
+}
+.title-eptype,.title-language,.title-category,.title-country,.title-year{
+  color: white;
+  margin: 5px 5px;
+  font-size: 18px;
+}
+.btn-filter-movie{
+  margin: 25px 5px 10px 5px;
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  background-color: red;
+}
