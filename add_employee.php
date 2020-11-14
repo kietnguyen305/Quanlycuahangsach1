@@ -96,7 +96,7 @@
           
             <hr class="mb-4">
             <button type="submit" class="btn btn-primary btn-lg">Thêm nhân viên</button>
-            <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+            <a type="button" href="employee_manager.php" class="btn btn-secondary btn-lg">Cancel</a>
           </form>
         </div>
       </div>

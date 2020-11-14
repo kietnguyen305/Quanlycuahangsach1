@@ -83,7 +83,7 @@
           
             <hr class="mb-4">
             <button type="submit" class="btn btn-primary btn-lg">Thêm nhà cung cấp</button>
-            <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+            <a type="button" href="supplier_manager.php" class="btn btn-secondary btn-lg">Cancel</a>
           </form>
         </div>
       </div>

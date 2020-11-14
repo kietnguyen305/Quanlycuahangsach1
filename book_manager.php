@@ -34,20 +34,20 @@
   </nav>
     
 <div class="row">
-  <div class="col-lg-3 mt-4">
+  <div class="col-lg-3 mt-5">
     <div class="row">
 
       <div class="col-12"> 
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Quản lý sách</button>
+        <a type="button" href="book_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý sách</a>
       </div>
       <div class="col-12"> 
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Quản lý nhân viên</button>
+        <a type="button" href="employee_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý nhân viên</a>
       </div>
       <div class="col">
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Quản lý nhà cung cấp</button>
+        <a type="button" href="supplier_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý nhà cung cấp</a>
       </div>
       <div class="col"> 
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Hiển thị thống kê</button>
+        <a type="button" href="#" class="btn btn-secondary btn-lg btn-block">Hiển thị thống kê</a>
       </div>
     </div>
 
@@ -91,6 +91,7 @@
         </tr>
       </tbody>
     </table>
+    <a type="button" href="add_book.php" class="btn btn-warning">Thêm sách</a>
 
   </div>
 </div>

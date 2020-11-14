@@ -103,8 +103,9 @@
 
           
             <hr class="mb-4">
-            <button type="submit" class="btn btn-primary btn-lg">Thêm sách</button>
-            <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-lg mb-4">Thêm sách</button>
+            <a type="button" href="book_manager.php" class="btn btn-secondary btn-lg mb-4">Cancel</a>
+              
           </form>
         </div>
       </div>

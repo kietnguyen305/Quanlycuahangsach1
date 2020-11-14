@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BookManagerPage</title>
+  <title>EmployeeManagerPage</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/search.css">
 </head>
@@ -34,25 +34,25 @@
   </nav>
     
 <div class="row">
-  <div class="col-lg-3 mt-4">
+  <div class="col-lg-3 mt-5">
     <div class="row">
 
       <div class="col-12"> 
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Quản lý sách</button>
+        <a type="button" href="book_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý sách</a>
       </div>
       <div class="col-12"> 
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Quản lý nhân viên</button>
+        <a type="button" href="employee_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý nhân viên</a>
       </div>
       <div class="col">
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Quản lý nhà cung cấp</button>
+        <a type="button" href="supplier_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý nhà cung cấp</a>
       </div>
       <div class="col"> 
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Hiển thị thống kê</button>
+        <a type="button" href="#" class="btn btn-secondary btn-lg btn-block">Hiển thị thống kê</a>
       </div>
     </div>
 
   </div>
-  <div class="col-lg-9 mt-3"
+  <div class="col-lg-9 mt-3">
    <h4 class="mb-3">Quản lý nhân viên</h4>
     <table class="table">
       <thead class="thead-dark">
@@ -90,7 +90,7 @@
         </tr>
       </tbody>
     </table>
-
+    <a type="button" href="add_employee.php" class="btn btn-warning">Thêm nhân viên</a>
   </div>
 </div>
 

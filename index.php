@@ -16,9 +16,9 @@
 	        	
 	        				
 	        				<ul class="navbar-nav ml-auto">
-				            	<li class="nav-item active">
+				            	<!-- <li class="nav-item active">
 				             		<a class="nav-link" href="registration.php">Đăng ký<span class="sr-only">(current)</span></a>
-				           		</li>
+				           		</li> -->
 				            	<li class="nav-item">
 				            		<a class="nav-link" href="login.php">Đăng nhập</a>
 				           		</li>
