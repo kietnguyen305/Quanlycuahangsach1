@@ -1,3 +1,7 @@
+<?php
+@ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +23,7 @@
                   <ul class=" p-3 navbar-nav ml-auto">
                       
                       <li class="nav-item">
-                        <a class="btn btn-danger"  href="#">Đăng xuất</a>
+                        <a class="btn btn-danger"  href="logout.php">Đăng xuất</a>
                       </li>
 
 
@@ -37,18 +41,36 @@
   <div class="col-lg-3 mt-5">
     <div class="row">
 
-      <div class="col-12"> 
+       <div class="col-12"> 
         <a type="button" href="book_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý sách</a>
       </div>
+      
+      <div class="col-12">
+        <a type="button" href="category_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý thể loại</a>
+      </div>
+       <?php 
+            if (isset($_SESSION['isAdmin']) && ($_SESSION['isAdmin']== 1) ) {?>
+      <div class="col-12">
+        
+        <a type="button"   href="publisher_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý nhà cung cấp</a>      
+     
+      </div> 
+       <?php }?>
+       <?php 
+            if (isset($_SESSION['isAdmin']) && ($_SESSION['isAdmin']== 1) ) {?>
       <div class="col-12"> 
+        
         <a type="button" href="employee_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý nhân viên</a>
+        
       </div>
-      <div class="col">
-        <a type="button" href="supplier_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý nhà cung cấp</a>
-      </div>
-      <div class="col"> 
+      <?php }?>
+       <?php 
+            if (isset($_SESSION['isAdmin']) && ($_SESSION['isAdmin']== 1) ) {?>
+      <div class="col-12"> 
         <a type="button" href="#" class="btn btn-secondary btn-lg btn-block">Hiển thị thống kê</a>
+       
       </div>
+       <?php }?>
     </div>
 
   </div>
@@ -57,38 +79,49 @@
     <table class="table">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">STT</th>
+          <th scope="col">Hình ảnh</th>    
           <th scope="col">ID</th>
           <th scope="col">Tên sách</th>
           <th scope="col">Tác giả</th>
-          <th scope="col">Thể loại</th>
           <th scope="col">Giá tiền</th>
+          <th scope="col">Thể loại</th>
           <th scope="col">Nhà cung cấp</th>
           <th scope="col">Số lượng</th>
           <th scope="col">Ngày phát hành</th>
-          <th scope="col">Ghi chú</th>
+         
           
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
+
+        <?php
+            require_once("connect.php");
+            mysqli_set_charset($conn, 'UTF8');
+            $sql = "SELECT * FROM books";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+              while ($row = $result->fetch_assoc()) {
+                ?>
+
+               <tr>
+                  <td><a><img src="<?= $row['img'] ?>" alt ="img" style="max-height: 80px; max-width: 80px;"></a></td>
+                  <th scope="row"><?= $row['book_id'] ?></th>
+                  
+                  <td><?= $row['book_name'] ?></td>
+                  <td><?= $row['book_author'] ?></td>
+                  <td><?= $row['book_price'] ?></td>
+                  <td><?= $row['publisherid'] ?></td>
+                  <td><?= $row['categoryid'] ?></td>
+                  <td><?= $row['amount'] ?></td>
+                  <td><?= $row['pulication_date'] ?></td>
+                  </tr>
+
+                <?php
+              }
+            }
+          ?>
+        
+       
       </tbody>
     </table>
     <a type="button" href="add_book.php" class="btn btn-warning">Thêm sách</a>
@@ -97,6 +130,7 @@
 </div>
 
 
+          
 
 
   </body>

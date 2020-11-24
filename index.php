@@ -1,3 +1,7 @@
+<?php
+@ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,16 +17,43 @@
 	        	<span class="navbar-toggler-icon"></span>
 	        </button>
 	        <div class="collapse navbar-collapse" id="navbarMenu">
-	        	
+	        	<?php
+	        			if (isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn']) {
+	        				?><ul class="navbar-nav ml-auto">
+				            	<li class="nav-item active">
+				            		<?php 
+				            			if (isset($_SESSION['isAdmin'])) {
+				            				?>
+				            				<a class="nav-link" href="book_manager.php"><?=$_SESSION['username']?><span class="sr-only">(current)</span></a><?php
+				            			}else{ ?>
+				            				<a class="nav-link" href=""><?=$_SESSION['username']?><span class="sr-only">(current)</span></a><?php
+				            			}
+
+				            		?>
+						             		
+							    </li>
+				            	<li class="nav-item">
+				            		<a class="nav-link" href="logout.php">Logout</a>
+				           		</li>
+					        	</ul> <?php
+					    } else{ ?>
+			        				<ul class="navbar-nav ml-auto">
+						            	
+						            	<li class="nav-item">
+						            		<a class="nav-link" href="login.php">Đăng nhập</a>
+						           		</li>
+						        	</ul> <?php
+			        			}
+	        				?>
 	        				
-	        				<ul class="navbar-nav ml-auto">
-				            	<!-- <li class="nav-item active">
+	        				<!-- <ul class="navbar-nav ml-auto">
+				            	<li class="nav-item active">
 				             		<a class="nav-link" href="registration.php">Đăng ký<span class="sr-only">(current)</span></a>
-				           		</li> -->
+				           		</li>
 				            	<li class="nav-item">
 				            		<a class="nav-link" href="login.php">Đăng nhập</a>
 				           		</li>
-				        	</ul>
+				        	</ul> -->
 	        	
 	          	<form class="form-inline" action="search.php" method="get">
 	    			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">

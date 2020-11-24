@@ -1,3 +1,7 @@
+<?php
+@ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +23,7 @@
                   <ul class=" p-3 navbar-nav ml-auto">
                       
                       <li class="nav-item">
-                        <a class="btn btn-danger"  href="#">Đăng xuất</a>
+                        <a class="btn btn-danger"  href="logout.php">Đăng xuất</a>
                       </li>
 
 
@@ -91,6 +95,36 @@
                 
               </div>
             </div>
+
+            <div class="mb-3">
+              <label for="email">Công việc<span class="text-muted"></span></label>
+             <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optradio">Thủ kho
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optradio">Nhân viên bán hàng
+            </div>
+             <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optradio">Quản lý
+            </div>
+            
+            
+            <div class="mb-3">
+              <label for="email">Phân quyền<span class="text-muted"></span></label>
+             <div class="form-check">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+              <label class="form-check-label" for="inlineCheckbox1">Thêm sách</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+              <label class="form-check-label" for="inlineCheckbox2">Thanh Toán</label>
+            </div>
+            
              
 
           

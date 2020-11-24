@@ -1,3 +1,7 @@
+<?php
+@ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +23,7 @@
                   <ul class=" p-3 navbar-nav ml-auto">
                       
                       <li class="nav-item">
-                        <a class="btn btn-danger"  href="#">Đăng xuất</a>
+                        <a class="btn btn-danger"  href="logout.php">Đăng xuất</a>
                       </li>
 
 

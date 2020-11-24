@@ -1,3 +1,7 @@
+<?php
+@ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +23,7 @@
                   <ul class=" p-3 navbar-nav ml-auto">
                       
                       <li class="nav-item">
-                        <a class="btn btn-danger"  href="#">Đăng xuất</a>
+                        <a class="btn btn-danger"  href="logout.php">Đăng xuất</a>
                       </li>
 
 
@@ -35,76 +39,84 @@
     <div class="container">
       <div class="order-md-1">
           <h4 class="mb-3">Thêm sách</h4>
-          <form class="needs-validation" novalidate="">
-            <div class="row">
-              <div class="col-md-3 mb-3">
-                <label for="firstName">ID</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+          <form class="needs-validation" action="addbook.php" method="POST" enctype="multipart/form-data" novalidate="">
+            
+              <div class="mb-3">                
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
               </div>
-              <div class="col mb-3">
-                <label for="lastName">Tên sách</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+              <div class="mb-3">
+                <label for="Name">Tên sách</label>
+                <input type="text" class="form-control" id="Name" name="book_name" placeholder="" value="" required="">
                 
               </div>
-            </div>
+            
+
+           
+           
 
             <div class="mb-3">
-              <label for="email">Tác giả <span class="text-muted"></span></label>
-              <input type="email" class="form-control" id="email" >
+              <label for="author">Tác giả <span class="text-muted"></span></label>
+              <input type="text" class="form-control" name="book_author" id="author" >
               <div class="invalid-feedback">
                 
               </div>
             </div>
 
             <div class="mb-3">
-              <label for="username">Thể loại</label>
+              <label for="category">Thể loại</label>
               <div class="input-group">
-                <input type="text" class="form-control" id="username" required="">
+                <input type="text" class="form-control"  name="book_category" id="category" required="">
                 
               </div>
             </div>
 
             <div class="mb-3">
-              <label for="email">Giá tiền <span class="text-muted"></span></label>
-              <input type="email" class="form-control" id="email" >
+              <label for="money">Giá tiền <span class="text-muted"></span></label>
+              <input type="number" step="0.01" name="book_price" class="form-control" id="money" >
               <div class="invalid-feedback">
                 
               </div>
             </div>
              
              <div class="mb-3">
-              <label for="email">Nhà cung cấp <span class="text-muted"></span></label>
-              <input type="email" class="form-control" id="email" >
+              <label for="publisher">Nhà cung cấp <span class="text-muted"></span></label>
+              <input type="text" class="form-control" name="book_publisher" id="publisher" >
               <div class="invalid-feedback">
                 
               </div>
             </div>
              <div class="mb-3">
-              <label for="email">Số lượng <span class="text-muted"></span></label>
-              <input type="email" class="form-control" id="email" >
+              <label for="count">Số lượng <span class="text-muted"></span></label>
+              <input type="text" class="form-control" name="amount" id="count" >
               <div class="invalid-feedback">
                 
               </div>
             </div>
              <div class="mb-3">
-              <label for="email">Ngày phát hành <span class="text-muted"></span></label>
-              <input type="email" class="form-control" id="email" placeholder="dd/mm/yyyy" >
+              <label for="day">Ngày phát hành <span class="text-muted"></span></label>
+              <input type="text" class="form-control"  name = "pulication_date" id="day" placeholder="yyyy/mm/dd" >
               <div class="invalid-feedback">
                 
               </div>
             </div>
              <div class="form-group">
                 <label for="exampleFormControlTextarea1">Ghi chú</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name = "content" rows="3"></textarea>
               </div>
+            <div class="mb-3">
+              <label for="fileUpload">Image</label>
+              <div class="input-group">
+                <input type="file" id="fileUpload" name="fileUpload" required>
+              </div>
+            </div>
 
           
             <hr class="mb-4">
-            <button type="submit" class="btn btn-primary btn-lg mb-4">Thêm sách</button>
+            <button type="submit" name="submit" class="btn btn-primary btn-lg mb-4">Thêm sách</button>
             <a type="button" href="book_manager.php" class="btn btn-secondary btn-lg mb-4">Cancel</a>
+
               
           </form>
         </div>

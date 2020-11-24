@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EmployeeManagerPage</title>
+  <title>CategoryManagerPage</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/search.css">
 </head>
@@ -41,7 +41,7 @@ session_start();
   <div class="col-lg-3 mt-5">
     <div class="row">
 
-       <div class="col-12"> 
+      <div class="col-12"> 
         <a type="button" href="book_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý sách</a>
       </div>
       
@@ -67,48 +67,39 @@ session_start();
         <a type="button" href="#" class="btn btn-secondary btn-lg btn-block">Hiển thị thống kê</a>
         <?php }?>
       </div>
+      
     </div>
 
   </div>
   <div class="col-lg-9 mt-3">
-   <h4 class="mb-3">Quản lý nhân viên</h4>
+     <h4 class="mb-3">Quản lý thể loại sách</h4>
     <table class="table">
       <thead class="thead-dark">
         <tr>
-          
+    
           <th scope="col">ID</th>
-          <th scope="col">Họ tên nhân viên</th>
-          <th scope="col">Số điện thoại</th>
-          <th scope="col">Email</th>
-          <th scope="col">Địa chỉ</th>
-          <th scope="col">Tài khoản</th>
-          <th scope="col">Mật khẩu</th>
-          <th scope="col">Công việc</th>
+          <th scope="col">Tên thể loại sách</th>
           
+         
           
         </tr>
       </thead>
       <tbody>
 
-          <?php
+        <?php
             require_once("connect.php");
             mysqli_set_charset($conn, 'UTF8');
-            $sql = "SELECT * FROM employee";
+            $sql = "SELECT * FROM category";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
               while ($row = $result->fetch_assoc()) {
                 ?>
 
                <tr>
-                  <th scope="row"><?= $row['id_emp'] ?></th>
+                  <th scope="row"><?= $row['categoryid'] ?></th>
                   
-                  <td><?= $row['name_emp'] ?></td>
-                  <td><?= $row['phonenum'] ?></td>
-                  <td><?= $row['email'] ?></td>
-                  <td><?= $row['address'] ?></td>
-                  <td><?= $row['username'] ?></td>
-                  <td><?= $row['password'] ?></td>
-                  <td><?= $row['role'] ?></td>
+                  <td><?= $row['category_name'] ?></td>
+                  
                   </tr>
 
                 <?php
@@ -116,14 +107,16 @@ session_start();
             }
           ?>
         
-
+       
       </tbody>
     </table>
-    <a type="button" href="add_employee.php" class="btn btn-warning">Thêm nhân viên</a>
+    <a type="button" href="add_category.php" class="btn btn-warning">Thêm thể loại</a>
+
   </div>
 </div>
 
 
+          
 
 
   </body>

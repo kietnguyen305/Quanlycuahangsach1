@@ -1,9 +1,14 @@
+<?php
+@ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SupplierManagerPage</title>
+  <title>PublisherManagerPage</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/search.css">
+ 
 </head>
 <body>
 
@@ -19,7 +24,7 @@
                   <ul class=" p-3 navbar-nav ml-auto">
                       
                       <li class="nav-item">
-                        <a class="btn btn-danger"  href="#">Đăng xuất</a>
+                        <a class="btn btn-danger"  href="logout.php">Đăng xuất</a>
                       </li>
 
 
@@ -40,14 +45,28 @@
       <div class="col-12"> 
         <a type="button" href="book_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý sách</a>
       </div>
+      
+      <div class="col-12">
+        <a type="button" href="category_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý thể loại</a>
+      </div>
+      <div class="col-12">
+         <?php 
+            if (isset($_SESSION['isAdmin']) && ($_SESSION['isAdmin']== 1) ) {?>
+        <a type="button"   href="publisher_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý nhà cung cấp</a>      
+      <?php }?>
+      </div> 
+      
       <div class="col-12"> 
+         <?php 
+            if (isset($_SESSION['isAdmin']) && ($_SESSION['isAdmin']== 1) ) {?>
         <a type="button" href="employee_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý nhân viên</a>
+        <?php }?>
       </div>
-      <div class="col">
-        <a type="button" href="supplier_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý nhà cung cấp</a>
-      </div>
+       <?php 
+            if (isset($_SESSION['isAdmin']) && ($_SESSION['isAdmin']== 1) ) {?>
       <div class="col"> 
         <a type="button" href="#" class="btn btn-secondary btn-lg btn-block">Hiển thị thống kê</a>
+        <?php }?>
       </div>
     </div>
 
@@ -57,7 +76,7 @@
     <table class="table">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">STT</th>
+       
           <th scope="col">ID</th>
           <th scope="col">Tên nhà cung cấp</th>
           <th scope="col">Số điện thoại</th>
@@ -67,24 +86,31 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
+
+        <?php
+            require_once("connect.php");
+            mysqli_set_charset($conn, 'UTF8');
+            $sql = "SELECT * FROM publisher";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+              while ($row = $result->fetch_assoc()) {
+                ?>
+
+               <tr>
+                  <th scope="row"><?= $row['publisherid'] ?></th>
+                  <td><?= $row['publisher_name'] ?></td>
+                  <td><?= $row['phonenum'] ?></td>
+                  <td><?= $row['email'] ?></td>
+                  <td><?= $row['address'] ?></td>
+
+                  
+                  </tr>
+
+                <?php
+              }
+            }
+          ?>
+      
       </tbody>
     </table>
     <a type="button" href="add_supplier.php" class="btn btn-warning">Thêm nhà cung cấp</a>

@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EditEmployeePage</title>
+  <title>AddSupplierPage</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/search.css">
 </head>
@@ -38,7 +38,7 @@ session_start();
     </nav>
     <div class="container">
       <div class="order-md-1">
-          <h4 class="mb-3">Thêm nhân viên</h4>
+          <h4 class="mb-3">Thêm nhà cung cấp</h4>
           <form class="needs-validation" novalidate="">
             <div class="row">
               <div class="col-md-3 mb-3">
@@ -49,7 +49,7 @@ session_start();
                 </div>
               </div>
               <div class="col mb-3">
-                <label for="lastName">Họ và tên nhân viên</label>
+                <label for="lastName">Tên nhà cung cấp</label>
                 <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
                 <div class="invalid-feedback">
                   Valid last name is required.
@@ -58,7 +58,7 @@ session_start();
             </div>
 
             <div class="mb-3">
-              <label for="username">Số điện thoại</label>
+              <label for="username">Số điện thoại liên lạc</label>
               <div class="input-group">
                 <input type="text" class="form-control" id="username" required="" placeholder="01234566789">
                 <div class="invalid-feedback" style="width: 100%;">
@@ -81,26 +81,13 @@ session_start();
                 
               </div>
             </div>
-             <div class="mb-3">
-              <label for="email">Tài khoản<span class="text-muted"></span></label>
-              <input type="email" class="form-control" id="email"  >
-              <div class="invalid-feedback">
-                
-              </div>
-            </div>
-             <div class="mb-3">
-              <label for="email">Mật khẩu<span class="text-muted"></span></label>
-              <input type="email" class="form-control" id="email" >
-              <div class="invalid-feedback">
-                
-              </div>
-            </div>
+            
              
 
           
             <hr class="mb-4">
-            <button type="submit" class="btn btn-primary btn-lg">Sửa nhân viên</button>
-            <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-lg">Thêm nhà cung cấp</button>
+            <a type="button" href="supplier_manager.php" class="btn btn-secondary btn-lg">Cancel</a>
           </form>
         </div>
       </div>
