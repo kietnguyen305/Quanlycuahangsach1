@@ -81,7 +81,8 @@ session_start();
           <th scope="col">Tên nhà cung cấp</th>
           <th scope="col">Số điện thoại</th>
           <th scope="col">Email</th>
-          <th scope="col">Địa chỉ</th>                
+          <th scope="col">Địa chỉ</th>    
+          <th scope="col"></th>         
           
         </tr>
       </thead>
@@ -102,6 +103,7 @@ session_start();
                   <td><?= $row['phonenum'] ?></td>
                   <td><?= $row['email'] ?></td>
                   <td><?= $row['address'] ?></td>
+                   <td><a style="color:#FF0000;" href="deletepublisher.php?id=<?= $row['publisherid'] ?>">Xóa nhà cung cấp</a> </td>
 
                   
                   </tr>
@@ -113,7 +115,7 @@ session_start();
       
       </tbody>
     </table>
-    <a type="button" href="add_supplier.php" class="btn btn-warning">Thêm nhà cung cấp</a>
+    <a type="button" href="add_publisher.php" class="btn btn-warning">Thêm nhà cung cấp</a>
 
   </div>
 </div>

@@ -2,6 +2,14 @@
 @ob_start();
 session_start();
 ?>
+
+<?php
+    require_once('connect.php');
+    mysqli_set_charset($conn, 'UTF8');
+   
+?> 
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,6 +42,7 @@ session_start();
             <button class="btn btn-secondary" type="submit" >Tìm kiếm</button>
           </form>
           </div>
+          
     
     </nav>
     <div class="container">
@@ -41,11 +50,11 @@ session_start();
           <h4 class="mb-3">Thêm sách</h4>
           <form class="needs-validation" action="addbook.php" method="POST" enctype="multipart/form-data" novalidate="">
             
-              <div class="mb-3">                
+              <!-- <div class="mb-3">                
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
-              </div>
+              </div> -->
               <div class="mb-3">
                 <label for="Name">Tên sách</label>
                 <input type="text" class="form-control" id="Name" name="book_name" placeholder="" value="" required="">
@@ -64,39 +73,84 @@ session_start();
               </div>
             </div>
 
-            <div class="mb-3">
-              <label for="category">Thể loại</label>
-              <div class="input-group">
-                <input type="text" class="form-control"  name="book_category" id="category" required="">
-                
-              </div>
-            </div>
+
+
+              
+
+           
+
+
 
             <div class="mb-3">
-              <label for="money">Giá tiền <span class="text-muted"></span></label>
-              <input type="number" step="0.01" name="book_price" class="form-control" id="money" >
+              <label for="category">Thể loại</label>
+              <?php 
+
+              $sql ="SELECT * FROM category";
+              $result = $conn->query($sql);
+              
+
+              if ($result->num_rows > 0) { 
+                while ($row = $result->fetch_assoc()) { ?>
+
+                <div class="form">
+                  <label><input type="radio" name="book_category" value="<?= $row['categoryid'] ?>"><?= $row['category_name'] ?></label>
+                </div>
+               <?php }
+              }
+
+               ?>
+            </div>
+
+             <div class="mb-3">
+              <label for="price">Giá tiền <span class="text-muted"></span></label>
+              <input type="number" class="form-control" name="book_price" id="price" value="">
               <div class="invalid-feedback">
                 
               </div>
             </div>
+
+              <div class="mb-3">
+              <label for="publisher">Nhà cung cấp</label>
+              <select name="book_publisher" class="browser-default custom-select">
+              <?php 
+
+              $sql1 ="SELECT * FROM publisher";
+              $result1 = $conn->query($sql1);
+              
+
+              if ($result1->num_rows > 0) {
+                while ($row1 = $result1->fetch_assoc()) { ?>
+
+                  
+                    
+                    <option value="<?= $row1['publisherid'] ?>"><?= $row1['publisher_name'] ?></option>
+                    
+                
+                  
+               <?php }
+              }
+
+               ?>
+                 </select>
+            </div>
              
-             <div class="mb-3">
+             <!-- <div class="mb-3">
               <label for="publisher">Nhà cung cấp <span class="text-muted"></span></label>
               <input type="text" class="form-control" name="book_publisher" id="publisher" >
               <div class="invalid-feedback">
                 
               </div>
-            </div>
+            </div> -->
              <div class="mb-3">
               <label for="count">Số lượng <span class="text-muted"></span></label>
-              <input type="text" class="form-control" name="amount" id="count" >
+              <input type="number" class="form-control" name="amount" id="count" >
               <div class="invalid-feedback">
                 
               </div>
             </div>
              <div class="mb-3">
               <label for="day">Ngày phát hành <span class="text-muted"></span></label>
-              <input type="text" class="form-control"  name = "pulication_date" id="day" placeholder="yyyy/mm/dd" >
+              <input type="date" class="form-control"  name = "pulication_date" id="day" placeholder="yyyy/mm/dd" >
               <div class="invalid-feedback">
                 
               </div>

@@ -41,6 +41,13 @@ INSERT INTO books (book_name, img, book_author, book_price, publisherid, categor
 ('The Name of the Wind (The Kingkiller Chronicle Book 1)','img/thenameofthewind.jpg', 'Patrick Rothfuss', '19.99', 7, 1, 54,'2012-03-01','2345 s2'),
 ('Broken Throne','img/brokenthrone.jpg','Victoria Aveyard', '17.99', 10, 2, 1,'2010-04-02','2345 s2');
 
+
+
+SELECT book_name, img, book_author, book_price, publisher.publisher_name, category.categoryid, amount, pulication_date, content
+FROM books, publisher, category
+WHERE books.categoryid = category.categoryid AND books.publisherid = publisher.publisherid
+
+
 -- ---------
 -----------------------------------------------
 
@@ -144,12 +151,15 @@ INSERT INTO customers (id_cus, firstname, lastname, email,password, address) VAL
 CREATE TABLE IF NOT EXISTS employee (
   id_emp float(10) NOT NULL PRIMARY KEY,
   name_emp varchar(40) NOT NULL,
+  birthday_emp date NOT NULL,
+  gender_emp varchar(3) NOT NULL,
   phonenum varchar(10) NOT NULL,
   email varchar(40) NOT NULL,
   address varchar(120) NOT NULL,
   username varchar(40) NOT NULL,
   password varchar(40) NOT NULL,
-  role int(1) NOT NULL
+  role_emp int(1) NOT NULL
+   
   
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -157,13 +167,39 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Dumping data for table `employee`
 --
-INSERT INTO employee (id_emp, name_emp, phonenum, email, address, username, password, role) VALUES
-(1, 'KietNguyen','082355522', 'nguyenkiet@gmail.com', '100','tk0','tk0',1),
-(2, 'KietTran','0987234123', 'trankiet@gmail.com', '111','tk1','tk1',2),
-(3, 'AnhNguyen','1097323123', 'nguyenanh@gmail.com', '111','nv1','nv1',3);
+INSERT INTO employee (id_emp, name_emp, birthday_emp, gender_emp, phonenum, email, address, username, password, role_emp) VALUES
+(1, 'KietNguyen','1999-08-01','Nam','082355522', 'nguyenkiet@gmail.com', '100','tk0','tk0',1),
+(2, 'KietTran','1999-12-21','Nam','0987234123', 'trankiet@gmail.com', '111','tk1','tk1',2),
+(3, 'AnhNguyen','1999-09-30','Nam','1097323123', 'nguyenanh@gmail.com', '111','nv1','nv1',3);
 
 -- --------------------------------------------------------
 
+
+_
+--
+-- Table structure for table `role`
+--
+
+CREATE TABLE IF NOT EXISTS role (
+  id_role int(1) NOT NULL PRIMARY KEY,
+  name_role varchar(40) NOT NULL
+  
+  
+) 
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `role`
+--
+INSERT INTO role (id_role, name_role) VALUES
+(1, 'admin'),
+(2, 'Thu kho'),
+(3, 'Nhan vien ban hang');
+
+-- ----------------------------------------
+SELECT id_emp, name_emp, phonenum, email, address, username, password, role.name_role
+FROM employee, role
+WHERE employee.role_emp = role.id_role
 --
 -- Table structure for table `expert`
 --
@@ -217,25 +253,6 @@ INSERT INTO publisher (publisherid,publisher_name,phonenum,email,address) VALUES
 --
 
 
---
--- Table structure for table `role`
---
-
-CREATE TABLE IF NOT EXISTS role (
-  id_role int(1) NOT NULL PRIMARY KEY,
-  name_role varchar(40) NOT NULL
-  
-  
-) 
-ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `role`
---
-INSERT INTO role (id_role, name_role) VALUES
-(1, 'admin'),
-(2, 'Thu kho'),
-(3, 'Nhan vien ban hang');
 
 --
 -- Table structure for table `user_role`

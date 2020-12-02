@@ -84,10 +84,10 @@ session_start();
 					<img src="img/becoming.jpg" class="card-img-top" alt="...">
 				</div>
 				<div class="col-md-4 col-sm6 mt-1 md-1">
-					<img src="img/broken throne.jpg" class="card-img-top" alt="...">
+					<img src="img/brokenthrone.jpg" class="card-img-top" alt="...">
 				</div>
 				<div class="col-md-4 col-sm6 mt-1 md-1">
-					<img src="img/city of ashes.jpg" class="card-img-top" alt="...">
+					<img src="img/cityofashes.jpg" class="card-img-top" alt="...">
 				</div>
 			
 			</div>
@@ -100,10 +100,10 @@ session_start();
 			<div class="row mx-1 my-1">
 				<!-- phan tu ben trong -->
 				<div class="col-md-4 col-sm6 mt-1 md-1">
-					<img src="img/monsters and ghosts.jpg" class="card-img-top" alt="...">
+					<img src="img/monstersandghosts.jpg" class="card-img-top" alt="...">
 				</div>
 				<div class="col-md-4 col-sm6 mt-1 md-1">
-					<img src="img/the name of the wind.jpg" class="card-img-top" alt="...">
+					<img src="img/thenameofthewind.jpg" class="card-img-top" alt="...">
 				</div>
 				<div class="col-md-4 col-sm6 mt-1 md-1">
 					<img src="img/becoming.jpg" class="card-img-top" alt="...">

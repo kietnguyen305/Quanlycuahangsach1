@@ -39,18 +39,18 @@ session_start();
     <div class="container">
       <div class="order-md-1">
           <h4 class="mb-3">Thêm nhà cung cấp</h4>
-          <form class="needs-validation" novalidate="">
+          <form class="needs-validation" action="addpublisher.php" method="POST" enctype="multipart/form-data" novalidate="">
             <div class="row">
               <div class="col-md-3 mb-3">
-                <label for="firstName">ID</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                <label for="id">ID</label>
+                <input type="number" class="form-control" name="id_P" id="id" placeholder="" value="" required="">
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
               </div>
               <div class="col mb-3">
-                <label for="lastName">Tên nhà cung cấp</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                <label for="name">Tên nhà cung cấp</label>
+                <input type="text" class="form-control" name="name_P" id="name" placeholder="" value="" required="">
                 <div class="invalid-feedback">
                   Valid last name is required.
                 </div>
@@ -58,9 +58,9 @@ session_start();
             </div>
 
             <div class="mb-3">
-              <label for="username">Số điện thoại liên lạc</label>
+              <label for="phonenum">Số điện thoại liên lạc</label>
               <div class="input-group">
-                <input type="text" class="form-control" id="username" required="" placeholder="01234566789">
+                <input type="number" class="form-control" name="phonenum_P" id="phonenum" required="" placeholder="01234566789">
                 <div class="invalid-feedback" style="width: 100%;">
                   Your username is required.
                 </div>
@@ -69,14 +69,14 @@ session_start();
 
             <div class="mb-3">
               <label for="email">Email <span class="text-muted"></span></label>
-              <input type="email" class="form-control" id="email" placeholder="youremail@example.com" >
+              <input type="email" class="form-control" name="email_P" id="email" placeholder="youremail@example.com" >
               <div class="invalid-feedback">
                 
               </div>
             </div>
              <div class="mb-3">
-              <label for="email">Địa chỉ <span class="text-muted"></span></label>
-              <input type="email" class="form-control" id="email" >
+              <label for="diachi">Địa chỉ <span class="text-muted"></span></label>
+              <input type="text" class="form-control" name="address_P" id="diachi" >
               <div class="invalid-feedback">
                 
               </div>
@@ -86,8 +86,8 @@ session_start();
 
           
             <hr class="mb-4">
-            <button type="submit" class="btn btn-primary btn-lg">Thêm nhà cung cấp</button>
-            <a type="button" href="supplier_manager.php" class="btn btn-secondary btn-lg">Cancel</a>
+            <button type="submit" name="submit" class="btn btn-primary btn-lg">Thêm nhà cung cấp</button>
+            <a type="button" href="publisher_manager.php" class="btn btn-secondary btn-lg">Cancel</a>
           </form>
         </div>
       </div>

@@ -78,12 +78,16 @@ session_start();
           
           <th scope="col">ID</th>
           <th scope="col">Họ tên nhân viên</th>
+          <th scope="col">Ngày sinh</th>
+          <th scope="col">Giới tính</th>
           <th scope="col">Số điện thoại</th>
           <th scope="col">Email</th>
           <th scope="col">Địa chỉ</th>
           <th scope="col">Tài khoản</th>
           <th scope="col">Mật khẩu</th>
           <th scope="col">Công việc</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
           
           
         </tr>
@@ -93,7 +97,7 @@ session_start();
           <?php
             require_once("connect.php");
             mysqli_set_charset($conn, 'UTF8');
-            $sql = "SELECT * FROM employee";
+            $sql = "SELECT id_emp, name_emp, birthday_emp, gender_emp, phonenum, email, address, username, password, role.name_role FROM employee, role WHERE employee.role_emp = role.id_role";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
               while ($row = $result->fetch_assoc()) {
@@ -103,12 +107,16 @@ session_start();
                   <th scope="row"><?= $row['id_emp'] ?></th>
                   
                   <td><?= $row['name_emp'] ?></td>
+                  <td><?= $row['birthday_emp'] ?></td>
+                  <td><?= $row['gender_emp'] ?></td>
                   <td><?= $row['phonenum'] ?></td>
                   <td><?= $row['email'] ?></td>
                   <td><?= $row['address'] ?></td>
                   <td><?= $row['username'] ?></td>
                   <td><?= $row['password'] ?></td>
-                  <td><?= $row['role'] ?></td>
+                  <td><?= $row['name_role'] ?></td>
+                  <td><a href="edit_employee.php?id=<?= $row['id_emp'] ?>">Chỉnh sửa</a> </td>
+                  <td><a style="color:#FF0000;" href="deleteemployee.php?id=<?= $row['id_emp'] ?>">Xóa nhân viên</a> </td>
                   </tr>
 
                 <?php

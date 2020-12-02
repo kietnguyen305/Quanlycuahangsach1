@@ -84,10 +84,12 @@ session_start();
           <th scope="col">Tên sách</th>
           <th scope="col">Tác giả</th>
           <th scope="col">Giá tiền</th>
-          <th scope="col">Thể loại</th>
           <th scope="col">Nhà cung cấp</th>
+          <th scope="col">Thể loại</th>          
           <th scope="col">Số lượng</th>
           <th scope="col">Ngày phát hành</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
          
           
         </tr>
@@ -97,7 +99,7 @@ session_start();
         <?php
             require_once("connect.php");
             mysqli_set_charset($conn, 'UTF8');
-            $sql = "SELECT * FROM books";
+            $sql = "SELECT book_id, book_name, img, book_author, book_price, publisher.publisher_name, category.category_name, amount, pulication_date, content FROM books, publisher, category WHERE books.categoryid = category.categoryid AND books.publisherid = publisher.publisherid ORDER by book_id ASC;";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
               while ($row = $result->fetch_assoc()) {
@@ -110,10 +112,16 @@ session_start();
                   <td><?= $row['book_name'] ?></td>
                   <td><?= $row['book_author'] ?></td>
                   <td><?= $row['book_price'] ?></td>
-                  <td><?= $row['publisherid'] ?></td>
-                  <td><?= $row['categoryid'] ?></td>
+                  <td><?= $row['publisher_name'] ?></td>
+                  <td><?= $row['category_name'] ?></td>
                   <td><?= $row['amount'] ?></td>
                   <td><?= $row['pulication_date'] ?></td>
+                  <td><a href="edit_book.php?id=<?= $row['book_id'] ?>">Chỉnh sửa</a> </td>
+                  <td><a style="color:#FF0000;" href="deletebook.php?id=<?= $row['book_id'] ?>">Xóa sách</a> </td>
+                  
+
+
+
                   </tr>
 
                 <?php

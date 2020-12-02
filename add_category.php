@@ -39,18 +39,18 @@ session_start();
     <div class="container">
       <div class="order-md-1">
           <h4 class="mb-3">Thêm thể loại</h4>
-          <form class="needs-validation" novalidate="">
+          <form class="needs-validation" action="addcategory.php" method="POST" enctype="multipart/form-data" novalidate="">
             <div class="row">
               <div class="col-md-3 mb-3">
-                <label for="firstName">ID</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                <label for="id">ID</label>
+                <input type="number" class="form-control" name="id_C" id="id" placeholder="" value="" required="">
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
               </div>
               <div class="col mb-3">
-                <label for="lastName">Tên thể loại</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                <label for="name">Tên thể loại</label>
+                <input type="text" class="form-control" name="name_C" id="name" placeholder="" value="" required="">
                 <div class="invalid-feedback">
                   Valid last name is required.
                 </div>
@@ -63,7 +63,7 @@ session_start();
 
           
             <hr class="mb-4">
-            <button type="submit" class="btn btn-primary btn-lg">Thêm thể loại</button>
+            <button type="submit" name="submit" class="btn btn-primary btn-lg">Thêm thể loại</button>
             <a type="button" href="category_manager.php" class="btn btn-secondary btn-lg">Cancel</a>
           </form>
         </div>

@@ -51,11 +51,11 @@ session_start();
                                   
                     if ($_POST['password'] == $row['password']) {
                       $_SESSION['isLoggedIn'] = true;
-                      if($row['role'] == 1){
+                      if($row['role_emp'] == 1){
                         $_SESSION['username'] = $row['username'];
                         $_SESSION['isAdmin'] = 1;
                         header("Location: book_manager.php");
-                      }else if($row['role'] == 2){
+                      }else if($row['role_emp'] == 2){
                         $_SESSION['username'] = $row['username'];
                         $_SESSION['isAdmin'] = 2;
                         header("Location: book_manager.php");
