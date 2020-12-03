@@ -20,7 +20,7 @@
 
 			$sql = "INSERT INTO books (book_name, img, book_author, book_price, publisherid, categoryid, amount, pulication_date, content) VALUES(?,?,?,?,?,?,?,?,?);";
 			$stmt = $conn->prepare($sql);
-			$stmt->bind_param("sssssssss",$name,$target,$author,$price,$publisher,$amount,$category,$date,$content);
+			$stmt->bind_param("sssssssss",$name,$target,$author,$price,$publisher,$category,$amount,$date,$content);
 			$isOK = $stmt->execute();
 		}
 	}

@@ -101,9 +101,12 @@ session_start();
             mysqli_set_charset($conn, 'UTF8');
             $sql = "SELECT book_id, book_name, img, book_author, book_price, publisher.publisher_name, category.category_name, amount, pulication_date, content FROM books, publisher, category WHERE books.categoryid = category.categoryid AND books.publisherid = publisher.publisherid ORDER by book_id ASC;";
             $result = $conn->query($sql);
+            echo $result->num_rows;
             if ($result->num_rows > 0) {
-              while ($row = $result->fetch_assoc()) {
+              while ($row = $result->fetch_assoc()) { echo $row['book_name'];
+
                 ?>
+
 
                <tr>
                   <td><a><img src="<?= $row['img'] ?>" alt ="img" style="max-height: 80px; max-width: 80px;"></a></td>

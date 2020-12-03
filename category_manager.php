@@ -41,33 +41,36 @@ session_start();
   <div class="col-lg-3 mt-5">
     <div class="row">
 
-      <div class="col-12"> 
+       <div class="col-12"> 
         <a type="button" href="book_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý sách</a>
       </div>
       
       <div class="col-12">
         <a type="button" href="category_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý thể loại</a>
       </div>
-      <div class="col-12">
-         <?php 
-            if (isset($_SESSION['isAdmin']) && ($_SESSION['isAdmin']== 1) ) {?>
-        <a type="button"   href="publisher_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý nhà cung cấp</a>      
-      <?php }?>
-      </div> 
-      
-      <div class="col-12"> 
-         <?php 
-            if (isset($_SESSION['isAdmin']) && ($_SESSION['isAdmin']== 1) ) {?>
-        <a type="button" href="employee_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý nhân viên</a>
-        <?php }?>
-      </div>
        <?php 
             if (isset($_SESSION['isAdmin']) && ($_SESSION['isAdmin']== 1) ) {?>
-      <div class="col"> 
-        <a type="button" href="#" class="btn btn-secondary btn-lg btn-block">Hiển thị thống kê</a>
-        <?php }?>
+      <div class="col-12">
+        
+        <a type="button"   href="publisher_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý nhà cung cấp</a>      
+     
+      </div> 
+       <?php }?>
+       <?php 
+            if (isset($_SESSION['isAdmin']) && ($_SESSION['isAdmin']== 1) ) {?>
+      <div class="col-12"> 
+        
+        <a type="button" href="employee_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý nhân viên</a>
+        
       </div>
-      
+      <?php }?>
+       <?php 
+            if (isset($_SESSION['isAdmin']) && ($_SESSION['isAdmin']== 1) ) {?>
+      <div class="col-12"> 
+        <a type="button" href="#" class="btn btn-secondary btn-lg btn-block">Hiển thị thống kê</a>
+       
+      </div>
+       <?php }?>
     </div>
 
   </div>
@@ -79,6 +82,8 @@ session_start();
     
           <th scope="col">ID</th>
           <th scope="col">Tên thể loại sách</th>
+          <th><th>
+
           
          
           
@@ -99,6 +104,7 @@ session_start();
                   <th scope="row"><?= $row['categoryid'] ?></th>
                   
                   <td><?= $row['category_name'] ?></td>
+                  <td><a style="color:#FF0000;" href="deletecategory.php?id=<?= $row['categoryid'] ?>">Xóa thể loại</a> </td>
                   
                   </tr>
 

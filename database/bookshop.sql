@@ -34,7 +34,7 @@ INSERT INTO books (book_name, img, book_author, book_price, publisherid, categor
 ('THE GOOD THIEVES','img/thegoodtheives.jpg', 'Katherine Rundell', '11.99', 7, 2, 7,'2011-08-03','2345 s2'),
 ('FIVE FEET APART','img/fivefeetapart.jpg','Dr Clare Bailey', '16.99', 7, 4, 3,'2011-09-04','2345 s2'),
 ('KINGDOM OF ASH (BOOK 6, THRONE OF GLASS)','img/kingdomifash.jpg', 'Sarah J. Maas', '19.99', 2, 6, 6,'2011-09-21','2345 s2'),
-('CITY OF ASHES (THE MORTAL INSTRUMENTS BOOK 2)','img/cityofashes.jpg', 'Cassandra Clare', '19.99', 1, 5, 6,'2011-09-30','2345 s2'),
+('CITY OF ASHES (THE MORTAL INSTRUMENTS BOOK 2)','img/cityofashes.jpg', 'Cassandra Clare', '19.99', 2, 5, 6,'2011-09-30','2345 s2'),
 ('ATLAS OF MONSTERS AND GHOSTS','img/monstersandghosts.jpg', 'Lonely Planet', '26.99', 11, 2, 79,'2012-09-01','2345 s2'),
 ('BECOMING','img/becoming.jpg', 'Michelle Obama', '49.99', 2, 9, 32,'2011-05-01','2345 s2'),
 ('GOOD NIGHT STORIES FOR REBEL GIRLS 2','img/goodnightstoriesforrebelgirls.jpg', 'Patrick Rothfuss', '49.99', 7, 2, 42,'2011-11-01','2345 s2'),
