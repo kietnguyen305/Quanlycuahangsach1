@@ -29,10 +29,12 @@ session_start();
 
                   </ul>
             
-              <form class="form-inline" action="search.php" method="get">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-                <button class="btn btn-secondary" type="submit" >Tìm kiếm</button>
-              </form>
+             <form class="form-inline" action="search_book.php" method="POST">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="text">
+
+            <button class="btn btn-secondary" type="submit" >Tìm kiếm</button>
+
+          </form>
           </div>
     
   </nav>
@@ -40,10 +42,11 @@ session_start();
 <div class="row">
   <div class="col-lg-3 mt-5">
     <div class="row">
-
+       
        <div class="col-12"> 
         <a type="button" href="book_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý sách</a>
       </div>
+    
       
       <div class="col-12">
         <a type="button" href="category_manager.php" class="btn btn-secondary btn-lg btn-block">Quản lý thể loại</a>
@@ -101,9 +104,9 @@ session_start();
             mysqli_set_charset($conn, 'UTF8');
             $sql = "SELECT book_id, book_name, img, book_author, book_price, publisher.publisher_name, category.category_name, amount, pulication_date, content FROM books, publisher, category WHERE books.categoryid = category.categoryid AND books.publisherid = publisher.publisherid ORDER by book_id ASC;";
             $result = $conn->query($sql);
-            echo $result->num_rows;
+            
             if ($result->num_rows > 0) {
-              while ($row = $result->fetch_assoc()) { echo $row['book_name'];
+              while ($row = $result->fetch_assoc()) {
 
                 ?>
 

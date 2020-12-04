@@ -29,9 +29,11 @@ session_start();
 
                   </ul>
             
-              <form class="form-inline" action="search.php" method="get">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+             <form class="form-inline" action="search_book.php" method="POST">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="text">
+
             <button class="btn btn-secondary" type="submit" >Tìm kiếm</button>
+
           </form>
           </div>
     
