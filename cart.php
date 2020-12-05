@@ -5,8 +5,7 @@ session_start();
 
 <?php
     require_once('cart.php');
-    mysqli_set_charset($conn, 'UTF8');
-   
+
 	$conn = db_connect();
 	// book_isbn got from form post method, change this place later.
 	if(isset($_POST['book_id'])){
